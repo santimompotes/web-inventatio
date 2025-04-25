@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Formularios</title>
+  </head>
+  <body class="bg-light">
+    <!-- Barra de navegación -->
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark mt-2">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html">Inventario Made Max</a>
+          <!-- Botón colapsable para móviles -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="formularios.html">Registro de Productos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="reportes.html">Reportes</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Sección principal del formulario -->
+    <section class="container-fluid">
+      <h1 class="text-center mt-2">Registro de Productos y Materiales</h1>
+
+      <div class="row gx-4 m-4 bg-white">
+        <!-- Formulario para registrar material -->
+        <div class="col-12 col-md-6 border border-secondary p-3 mb-3">
+          <h2>Registrar Material</h2>
+
+          <label class="form-label">Nombre del material</label>
+          <input type="text" class="form-control" id="iNombre">
+
+          <label class="form-label">Proveedor</label>
+          <select class="form-select" id="iProveedor">
+            <option value="">Proveedor</option>
+          </select>
+
+          <label class="form-label">Precio por unidad</label>
+          <input type="number" class="form-control" id="iPrecio">
+
+          <label class="form-label">Cantidad en stock</label>
+          <input type="number" class="form-control" id="iCant">
+
+          <label class="form-label">Fecha de Ingreso</label>
+          <input type="date" class="form-control" id="iFecha">
+
+          <button class="btn btn-primary mt-2" id="botonMaterial">Agregar Material</button>
+        </div>
+
+        <!-- Formulario para registrar producto -->
+        <div class="col-12 col-md-6 border border-secondary p-3 mb-3">
+          <h2>Registrar Producto</h2>
+
+          <label class="form-label">Nombre del producto</label>
+          <input type="text" class="form-control" id="nomProd">
+
+          <label class="form-label">Precio del producto</label>
+          <input type="number" class="form-control" id="precioProducto">
+
+          <label class="form-label">Descripción</label>
+          <input type="text" class="form-control" id="descripProducto">
+
+          <label class="form-label">Materiales</label>
+          <select class="form-select" id="materialesProducto">
+            <option selected>Materiales</option>
+          </select>
+
+          <label class="form-label">Stock actual</label>
+          <input type="number" class="form-control" id="stockProducto">
+
+          <label class="form-label">Imagen del producto</label>
+          <input id="imgProducto" type="file" class="form-control mt-3" accept="image/*">
+
+          <button class="btn btn-primary mt-2 mb-2" id="botonProducto">Guardar Producto</button>
+        </div>
+      </div>
+    </section>
+
+    <script src="js/ingresar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html>
