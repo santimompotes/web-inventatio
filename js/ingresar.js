@@ -29,7 +29,13 @@ function ingresarMaterial() {
 
     // Si no existe, lo agregamos como nuevo
     if (coincidencia==false) {
-        const datos = { nombre, proveedor, precio, cantidad, fecha };
+        const datos = { 
+            nombre: nombre,
+            proveedor: proveedor,
+            precio: precio,
+            cantidad: cantidad, 
+            fecha: fecha 
+        };
         materialesGuardados.push(datos);
     }
 

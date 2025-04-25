@@ -1,6 +1,7 @@
 // Mostrar tarjetas de productos desde localStorage
 function imprimirProducto() {
     const productosGuardados = JSON.parse(localStorage.getItem('productos')) || [];
+    console.log("Productos cargados:", productosGuardados); // Verifica si los productos se cargan correctamente
     const productContainer = document.getElementById("productContainer");
 
     productosGuardados.forEach(producto => {
@@ -60,10 +61,15 @@ function mostrarModalVenta(producto) {
     const fechaInput = document.getElementById('fechaVenta');
     const btnVenta = document.getElementById('botonVenta');
 
-    btnVenta.addEventListener('click', () => guardarVentas());
+    // Verifica si los elementos existen antes de añadirles eventos
+    if (cantidadInput && fechaInput && btnVenta) {
+        btnVenta.addEventListener('click', () => guardarVentas(producto));
+    } else {
+        console.log("Error: No se pudieron encontrar los elementos del formulario.");
+    }
 
     // Guardar la venta
-    function guardarVentas() {
+    function guardarVentas(producto) {
         const cantidad = parseInt(cantidadInput.value);
         const fecha = fechaInput.value;
 
@@ -107,6 +113,8 @@ function spanMaterial() {
     const materialCantidad = document.getElementById("totalMateriales");
     const materiales = JSON.parse(localStorage.getItem('materiales')) || [];
 
+    console.log("Materiales:", materiales); // Verifica que los materiales estén siendo cargados correctamente
+
     let totalCantidad = materiales.reduce((acc, mat) => acc + (parseInt(mat.cantidad) || 0), 0);
     materialCantidad.textContent = totalCantidad;
 }
@@ -115,6 +123,8 @@ function spanMaterial() {
 function spanProducto() {
     const productosStock = document.getElementById("totalProductos");
     const productos = JSON.parse(localStorage.getItem('productos')) || [];
+
+    console.log("Productos para stock:", productos); // Verifica que los productos estén siendo cargados correctamente
 
     let totalStock = productos.reduce((acc, prod) => acc + (parseInt(prod.stock) || 0), 0);
     productosStock.textContent = totalStock;
@@ -125,6 +135,8 @@ function spanVendidos() {
     const vendidosSpan = document.getElementById("totalVentas");
     const productos = JSON.parse(localStorage.getItem('productos')) || [];
 
+    console.log("Productos vendidos:", productos); // Verifica si se cargan correctamente los productos vendidos
+
     let totalVendidos = productos.reduce((acc, prod) => acc + (parseInt(prod.vendido) || 0), 0);
     vendidosSpan.textContent = totalVendidos;
 }
@@ -133,6 +145,8 @@ function spanVendidos() {
 function spanVentas() {
     const totalSpan = document.getElementById("productosVendidos");
     const ventas = JSON.parse(localStorage.getItem('ventas')) || [];
+
+    console.log("Ventas cargadas:", ventas); // Verifica que las ventas se carguen correctamente
 
     const totalAcumulado = ventas.reduce((acc, venta) => acc + (parseFloat(venta.totalVenta) || 0), 0);
     totalSpan.textContent = totalAcumulado;
