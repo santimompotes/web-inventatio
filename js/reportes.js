@@ -95,7 +95,7 @@ function imprimirVentas() {
         const tdProducto = document.createElement("td");
         tdProducto.textContent = venta.nombre;
         const tdPrecio = document.createElement("td");
-        tdPrecio.textContent = `$${venta.precio}`;
+        tdPrecio.textContent = venta.precio;
         const tdCantidad = document.createElement("td");
         tdCantidad.textContent = venta.cantidad;
         const tdFecha = document.createElement("td");

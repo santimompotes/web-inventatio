@@ -1,7 +1,7 @@
 // Mostrar tarjetas de productos desde localStorage
 function imprimirProducto() {
     const productosGuardados = JSON.parse(localStorage.getItem('productos')) || [];
-    console.log("Productos cargados:", productosGuardados); // Verifica si los productos se cargan correctamente
+    
     const productContainer = document.getElementById("productContainer");
 
     productosGuardados.forEach(producto => {
@@ -16,7 +16,6 @@ function imprimirProducto() {
         const img = document.createElement("img");
         img.classList.add("card-img-top", "img-fluid");
         img.src = producto.imagen;
-        img.alt = producto.nombre;
 
         const cardBody = document.createElement("div");
         cardBody.classList.add("card-body");
@@ -54,6 +53,7 @@ function imprimirProducto() {
 
 // Mostrar el modal para registrar una venta
 function mostrarModalVenta(producto) {
+
     const modal = new bootstrap.Modal(document.getElementById('modalVenta'));
     modal.show();
 
@@ -61,12 +61,9 @@ function mostrarModalVenta(producto) {
     const fechaInput = document.getElementById('fechaVenta');
     const btnVenta = document.getElementById('botonVenta');
 
-    // Verifica si los elementos existen antes de añadirles eventos
-    if (cantidadInput && fechaInput && btnVenta) {
-        btnVenta.addEventListener('click', () => guardarVentas(producto));
-    } else {
-        console.log("Error: No se pudieron encontrar los elementos del formulario.");
-    }
+
+    btnVenta.addEventListener('click', () => guardarVentas(producto));
+  
 
     // Guardar la venta
     function guardarVentas(producto) {
@@ -98,8 +95,6 @@ function mostrarModalVenta(producto) {
 
             modal.hide();
             alert("Venta registrada exitosamente.");
-
-            const totalAcumulado = ventas.reduce((acc, v) => acc + v.totalVenta, 0);
 
             window.location.reload();
         } else {
